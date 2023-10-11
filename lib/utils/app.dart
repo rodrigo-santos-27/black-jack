@@ -9,7 +9,7 @@ class App {
 
   App._internal();
 
-  String initRoute = EndPoints.splashScreen;
+  String initRoute = EndPoints.home;
   AppColors colors = AppColors();
   AssetsPath assetsPath = AssetsPath();
   Urls urls = Urls();
@@ -53,15 +53,21 @@ class AssetsPath {
 
   String logo = 'assets/logo.png';
   String splashScreen = 'assets/splash-screen.png';
-  // String home = 'assets/home.png';
-  // String face = 'assets/face.png';
-  // String faceHover = 'assets/face_hover.png';
-  // String insta = 'assets/insta.png';
-  // String instaHover = 'assets/insta_hover.png';
-  // String what = 'assets/what.png';
-  // String whatHover = 'assets/what_hover.png';
-  // String privacy = 'assets/privacy_policy.png';
-  // String service = 'assets/service_policy.png';
+  String lineHeader = 'assets/line-header.png';
+  String homeScreen = 'assets/home-screen.png';
+  String homeScreenWood = 'assets/home-screen-wood.png';
+  String homeScreenBlack = 'assets/home-screen-black.png';
+  String homeScreenFive = 'assets/home-five.png';
+  String homeScreenTen = 'assets/home-ten.png';
+  String homeScreenTwoFive = 'assets/home-two-five.png';
+  String homeScreenFiveZero = 'assets/home-five-zero.png';
+  String homeScreenOneZeroZero = 'assets/home-one-zero-zero.png';
+  String homeScreenTwoZeroZero = 'assets/home-two-zero-zero.png';
+  String homeScreenMoney = 'assets/home-money.png';
+  String homeScreenSettings = 'assets/home-settings.png';
+  String homeScreenConvite = 'assets/home-convite.png';
+  String homeScreenDeck = 'assets/home-deck.png';
+  String homeScreenDeckAux = 'assets/home-deck-aux.png';
 }
 
 class Urls {
