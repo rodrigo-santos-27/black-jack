@@ -27,6 +27,13 @@ class AppColors {
   Color primaryColorApp = const Color.fromRGBO(1, 2, 3, 1);
   Color secondaryColorApp = const Color.fromRGBO(230, 230, 230, 1);
   Color loadingBarColorApp = const Color.fromRGBO(82, 255, 0, 1);
+
+  Color chipFive = const Color.fromRGBO(33, 113, 235, 1);
+  Color chipTen = const Color.fromRGBO(255, 96, 185, 1);
+  Color chipTwentyFive = const Color.fromRGBO(13, 155, 194, 1);
+  Color chipFifty = const Color.fromRGBO(255, 47, 82, 1);
+  Color chipOneHundred = const Color.fromRGBO(155, 44, 237, 1);
+  Color chipTwoHundred = const Color.fromRGBO(214, 24, 63, 1);
 }
 
 class Labels {
@@ -59,13 +66,13 @@ class AssetsPath {
   String homeScreenBlack = 'assets/home-screen-black.png';
   String homeScreenFive = 'assets/home-five.png';
   String homeScreenTen = 'assets/home-ten.png';
-  String homeScreenTwoFive = 'assets/home-two-five.png';
-  String homeScreenFiveZero = 'assets/home-five-zero.png';
-  String homeScreenOneZeroZero = 'assets/home-one-zero-zero.png';
-  String homeScreenTwoZeroZero = 'assets/home-two-zero-zero.png';
+  String homeScreenTwentyFive = 'assets/home-twenty-five.png';
+  String homeScreenFifty = 'assets/home-fifty.png';
+  String homeScreenOnehundred = 'assets/home-one-hundred.png';
+  String homeScreenTwoHundred = 'assets/home-two-hundred.png';
   String homeScreenMoney = 'assets/home-money.png';
   String homeScreenSettings = 'assets/home-settings.png';
-  String homeScreenConvite = 'assets/home-convite.png';
+  String homeScreenInvite = 'assets/home-invite.png';
   String homeScreenDeck = 'assets/home-deck.png';
   String homeScreenDeckAux = 'assets/home-deck-aux.png';
 }

@@ -35,12 +35,12 @@ flutter:
     - assets/home-screen-black.png
     - assets/home-five.png
     - assets/home-ten.png
-    - assets/home-two-five.png
-    - assets/home-five-zero.png
-    - assets/home-one-zero-zero.png
-    - assets/home-two-zero-zero.png
+    - assets/home-twenty-five.png
+    - assets/home-fifty.png
+    - assets/home-one-hundred.png
+    - assets/home-two-hundred.png
     - assets/home-money.png
     - assets/home-settings.png
-    - assets/home-convite.png
+    - assets/home-invite.png
     - assets/home-deck.png
     - assets/home-deck-aux.png
