@@ -9,7 +9,10 @@ class ImagePulser extends StatefulWidget {
       required this.widthWidget,
       required this.offSet,
       this.glow,
-      this.onHover});
+      this.onHover,
+      required this.glowActive,
+      required this.animationController,
+      required this.animation});
 
   final GestureTapCallback onTap;
   final Function(bool hover)? onHover;
@@ -18,23 +21,20 @@ class ImagePulser extends StatefulWidget {
   final double widthWidget;
   final double offSet;
   final Color? glow;
+  final bool glowActive;
+  final AnimationController animationController;
+  final Animation animation;
   @override
   State<ImagePulser> createState() => _ImagePulserState();
 }
 
 class _ImagePulserState extends State<ImagePulser>
     with SingleTickerProviderStateMixin {
-  late AnimationController animationController;
-  late Animation animation;
+  late List<AnimationController> animationControllers = [];
+  late List<Animation> animations = [];
 
   @override
   void initState() {
-    animationController =
-        AnimationController(vsync: this, duration: const Duration(seconds: 2));
-    animation = Tween(begin: 0.0, end: 12.0).animate(
-      CurvedAnimation(parent: animationController, curve: Curves.easeOut),
-    );
-    animationController.repeat(reverse: true);
     super.initState();
   }
 
@@ -44,7 +44,7 @@ class _ImagePulserState extends State<ImagePulser>
       alignment: Alignment.center,
       children: [
         AnimatedBuilder(
-          animation: animation,
+          animation: widget.animation,
           builder: (context, _) {
             return Container(
               height: widget.heightWidget - widget.offSet,
@@ -54,17 +54,17 @@ class _ImagePulserState extends State<ImagePulser>
                 shape: BoxShape.circle,
                 boxShadow: [
                   BoxShadow(
-                    color:
-                        Colors.white.withOpacity(animationController.value / 2),
+                    color: Colors.white
+                        .withOpacity(widget.animationController.value / 2),
                     spreadRadius: 8,
                     blurRadius: 8,
                   ),
                   BoxShadow(
                     color: widget.glow == null
                         ? Colors.white
-                            .withOpacity(animationController.value / 2)
+                            .withOpacity(widget.animationController.value / 2)
                         : widget.glow!
-                            .withOpacity(animationController.value / 2),
+                            .withOpacity(widget.animationController.value / 2),
                     spreadRadius: 12,
                     blurRadius: 12,
                   )

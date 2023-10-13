@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 
 class ChipData {
+  final String name;
   final double topFactor;
   final double sideLeftFactor;
   final double sideRightFactor;
@@ -13,6 +14,7 @@ class ChipData {
   final Color glow;
   final String imagePath;
   ChipData({
+    required this.name,
     required this.topFactor,
     required this.sideLeftFactor,
     required this.sideRightFactor,
@@ -24,6 +26,7 @@ class ChipData {
   });
 
   ChipData copyWith({
+    String? name,
     double? topFactor,
     double? sideLeftFactor,
     double? sideRightFactor,
@@ -34,6 +37,7 @@ class ChipData {
     String? imagePath,
   }) {
     return ChipData(
+      name: name ?? this.name,
       topFactor: topFactor ?? this.topFactor,
       sideLeftFactor: sideLeftFactor ?? this.sideLeftFactor,
       sideRightFactor: sideRightFactor ?? this.sideRightFactor,
@@ -47,6 +51,7 @@ class ChipData {
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
+      'name': name,
       'topFactor': topFactor,
       'sideLeftFactor': sideLeftFactor,
       'sideRightFactor': sideRightFactor,
@@ -60,6 +65,7 @@ class ChipData {
 
   factory ChipData.fromMap(Map<String, dynamic> map) {
     return ChipData(
+      name: map['name'] as String,
       topFactor: map['topFactor'] as double,
       sideLeftFactor: map['sideLeftFactor'] as double,
       sideRightFactor: map['sideRightFactor'] as double,
@@ -78,14 +84,15 @@ class ChipData {
 
   @override
   String toString() {
-    return 'ChipData(topFactor: $topFactor, sideLeftFactor: $sideLeftFactor, sideRightFactor: $sideRightFactor, offSetHeight: $offSetHeight, offSetWidth: $offSetWidth, offSetGlow: $offSetGlow, glow: $glow, imagePath: $imagePath)';
+    return 'ChipData(name: $name, topFactor: $topFactor, sideLeftFactor: $sideLeftFactor, sideRightFactor: $sideRightFactor, offSetHeight: $offSetHeight, offSetWidth: $offSetWidth, offSetGlow: $offSetGlow, glow: $glow, imagePath: $imagePath)';
   }
 
   @override
   bool operator ==(covariant ChipData other) {
     if (identical(this, other)) return true;
 
-    return other.topFactor == topFactor &&
+    return other.name == name &&
+        other.topFactor == topFactor &&
         other.sideLeftFactor == sideLeftFactor &&
         other.sideRightFactor == sideRightFactor &&
         other.offSetHeight == offSetHeight &&
@@ -97,7 +104,8 @@ class ChipData {
 
   @override
   int get hashCode {
-    return topFactor.hashCode ^
+    return name.hashCode ^
+        topFactor.hashCode ^
         sideLeftFactor.hashCode ^
         sideRightFactor.hashCode ^
         offSetHeight.hashCode ^

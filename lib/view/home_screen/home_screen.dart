@@ -1,3 +1,4 @@
+import 'package:app/model/chip_hover.dart';
 import 'package:app/model_view/home_view_model.dart';
 import 'package:app/utils/app.dart';
 import 'package:app/view/home_screen/components/custom_round_rect_clipper.dart';
@@ -13,8 +14,12 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   late final App app;
+  ChipHover chipHover = ChipHover();
+
+  late Map<String, AnimationController> animationControllers = {};
+  late Map<String, Animation> animations = {};
 
   @override
   void initState() {
@@ -29,6 +34,8 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: app.colors.primaryColorApp,
       body: Consumer<HomeViewModel>(builder: (context, homeViewlModel, child) {
+        homeViewlModel.getAnimationController(
+            this, animations, animationControllers, homeViewlModel.chips);
         return Stack(
           children: [
             buildBackgroundIMage(),
@@ -173,32 +180,59 @@ class _HomeScreenState extends State<HomeScreen> {
 
   List<Widget> buildListChipsButtons(
       HomeViewModel homeViewlModel, double heightWidget, double widthWidget) {
-    return homeViewlModel.chips
-        .map(
-          (chip) => Positioned(
-            top: heightWidget * chip.topFactor,
-            left: chip.sideLeftFactor > 0.0
-                ? widthWidget * chip.sideLeftFactor
-                : null,
-            right: chip.sideRightFactor > 0.0
-                ? widthWidget * chip.sideRightFactor
-                : null,
-            child: ImagePulser(
-              heightWidget: widthWidget * chip.offSetHeight,
-              widthWidget: widthWidget * chip.offSetWidth,
-              offSet: widthWidget * chip.offSetGlow,
-              glow: chip.glow,
-              image: ImageSize(
-                height: widthWidget * chip.offSetHeight,
-                width: widthWidget * chip.offSetWidth,
-                imagePath: chip.imagePath,
-              ),
-              onTap: () {
-                print(chip);
-              },
+    return homeViewlModel.chips.map(
+      (chip) {
+        final currentController = animationControllers[chip.name];
+        final currentAnimation = animations[chip.name];
+        final currentHover = chipHover.getCurrentHover(chip.name) ?? false;
+
+        if (chipHover.getAllHover()) {
+          if (!currentHover) {
+            currentController?.reset();
+          }
+        } else {
+          currentController?.repeat(reverse: true);
+        }
+
+        return Positioned(
+          top: heightWidget * chip.topFactor,
+          left: chip.sideLeftFactor > 0.0
+              ? widthWidget * chip.sideLeftFactor
+              : null,
+          right: chip.sideRightFactor > 0.0
+              ? widthWidget * chip.sideRightFactor
+              : null,
+          child: ImagePulser(
+            heightWidget: widthWidget * chip.offSetHeight,
+            widthWidget: widthWidget * chip.offSetWidth,
+            offSet: widthWidget * chip.offSetGlow,
+            glow: chip.glow,
+            glowActive: chipHover.getAllHover() &&
+                (chipHover.getCurrentHover(chip.name) ?? false),
+            image: ImageSize(
+              height: widthWidget * chip.offSetHeight,
+              width: widthWidget * chip.offSetWidth,
+              imagePath: chip.imagePath,
             ),
+            onTap: () {
+              print(chip);
+            },
+            onHover: (hover) {
+              setState(() {
+                if (hover) {
+                  chipHover.setAllHover(hover);
+                  chipHover.addCurrentHover(chip.name, hover);
+                } else {
+                  chipHover.setAllHover(hover);
+                  chipHover.removeCurrentHover(chip.name);
+                }
+              });
+            },
+            animationController: currentController!,
+            animation: currentAnimation!,
           ),
-        )
-        .toList();
+        );
+      },
+    ).toList();
   }
 }
