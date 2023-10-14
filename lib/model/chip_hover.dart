@@ -1,24 +1,58 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:convert';
+
+import 'package:flutter/foundation.dart';
+
 class ChipHover {
-  bool allHover = false;
-  Map<String, bool> currentHover = {};
+  bool allHover;
+  Map<String, bool> currentHover;
+  ChipHover({
+    required this.allHover,
+    required this.currentHover,
+  });
 
-  void setAllHover(bool value) {
-    allHover = value;
+  ChipHover copyWith({
+    bool? allHover,
+    Map<String, bool>? currentHover,
+  }) {
+    return ChipHover(
+      allHover: allHover ?? this.allHover,
+      currentHover: currentHover ?? this.currentHover,
+    );
   }
 
-  bool getAllHover() {
-    return allHover;
+  Map<String, dynamic> toMap() {
+    return <String, dynamic>{
+      'allHover': allHover,
+      'currentHover': currentHover,
+    };
   }
 
-  void addCurrentHover(String key, bool value) {
-    currentHover[key] = value;
+  factory ChipHover.fromMap(Map<String, dynamic> map) {
+    return ChipHover(
+      allHover: map['allHover'] as bool,
+      currentHover:
+          Map<String, bool>.from(map['currentHover'] as Map<String, bool>),
+    );
   }
 
-  bool? getCurrentHover(String key) {
-    return currentHover[key];
+  String toJson() => json.encode(toMap());
+
+  factory ChipHover.fromJson(String source) =>
+      ChipHover.fromMap(json.decode(source) as Map<String, dynamic>);
+
+  @override
+  String toString() =>
+      'ChipHover(allHover: $allHover, currentHover: $currentHover)';
+
+  @override
+  bool operator ==(covariant ChipHover other) {
+    if (identical(this, other)) return true;
+
+    return other.allHover == allHover &&
+        mapEquals(other.currentHover, currentHover);
   }
 
-  void removeCurrentHover(String key) {
-    currentHover.remove(key);
-  }
+  @override
+  int get hashCode => allHover.hashCode ^ currentHover.hashCode;
 }

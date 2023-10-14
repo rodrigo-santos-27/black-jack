@@ -1,9 +1,21 @@
+import 'package:app/model/bets_data.dart';
 import 'package:app/model/chip_data.dart';
-import 'package:app/model/static_data/static_chip_data.dart';
+import 'package:app/model/chip_hover.dart';
+import 'package:app/model/panel_button.dart';
+import 'package:app/repository/static_chip_data.dart';
 import 'package:flutter/material.dart';
 
 class HomeViewModel extends ChangeNotifier {
   List<ChipData> chips = StaticChipData.chips;
+
+  ChipHover _chipHover = ChipHover(allHover: false, currentHover: {});
+  ChipHover get chipHover => _chipHover;
+
+  final List<BetsData> _betsData = [];
+  List<BetsData> get betsData => _betsData;
+
+  final List<PanelButton> _panelButton = [];
+  List<PanelButton> get panelButton => _panelButton;
 
   AnimationController getAnimationController(
     homeScreenState,
@@ -12,7 +24,6 @@ class HomeViewModel extends ChangeNotifier {
     List<ChipData> chips,
   ) {
     late AnimationController controller;
-
     for (ChipData chip in chips) {
       controller = AnimationController(
           vsync: homeScreenState, duration: const Duration(seconds: 2));
@@ -23,5 +34,30 @@ class HomeViewModel extends ChangeNotifier {
       controller.repeat(reverse: true);
     }
     return controller;
+  }
+
+  void setChipHover(ChipHover newChipHover) {
+    _chipHover = newChipHover;
+    notifyListeners();
+  }
+
+  void saveBets(BetsData bet) {
+    _betsData.add(bet);
+    notifyListeners();
+  }
+
+  void clearBets() {
+    _betsData.clear();
+    notifyListeners();
+  }
+
+  void savePanelButtons(PanelButton panel) {
+    _panelButton.add(panel);
+    notifyListeners();
+  }
+
+  void clearPanelButtons() {
+    _panelButton.clear();
+    notifyListeners();
   }
 }

@@ -10,7 +10,6 @@ class ImagePulser extends StatefulWidget {
       required this.offSet,
       this.glow,
       this.onHover,
-      required this.glowActive,
       required this.animationController,
       required this.animation});
 
@@ -21,7 +20,6 @@ class ImagePulser extends StatefulWidget {
   final double widthWidget;
   final double offSet;
   final Color? glow;
-  final bool glowActive;
   final AnimationController animationController;
   final Animation animation;
   @override

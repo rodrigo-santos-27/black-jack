@@ -61,6 +61,16 @@ class AssetsPath {
   String logo = 'assets/logo.png';
   String splashScreen = 'assets/splash-screen.png';
   String lineHeader = 'assets/line-header.png';
+  String five = 'assets/five.png';
+  String ten = 'assets/ten.png';
+  String twentyFive = 'assets/twenty-five.png';
+  String fifty = 'assets/fifty.png';
+  String onehundred = 'assets/one-hundred.png';
+  String twoHundred = 'assets/two-hundred.png';
+  String clearUp = 'assets/clear-up.png';
+  String clearDown = 'assets/clear-down.png';
+  String dealUp = 'assets/deal-up.png';
+  String dealDown = 'assets/deal-down.png';
   String homeScreen = 'assets/home-screen.png';
   String homeScreenWood = 'assets/home-screen-wood.png';
   String homeScreenBlack = 'assets/home-screen-black.png';

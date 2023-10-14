@@ -13,6 +13,8 @@ class ChipData {
   final double offSetGlow;
   final Color glow;
   final String imagePath;
+  final String chipPath;
+  final int value;
   ChipData({
     required this.name,
     required this.topFactor,
@@ -23,6 +25,8 @@ class ChipData {
     required this.offSetGlow,
     required this.glow,
     required this.imagePath,
+    required this.chipPath,
+    required this.value,
   });
 
   ChipData copyWith({
@@ -35,6 +39,8 @@ class ChipData {
     double? offSetGlow,
     Color? glow,
     String? imagePath,
+    String? chipPath,
+    int? value,
   }) {
     return ChipData(
       name: name ?? this.name,
@@ -46,6 +52,8 @@ class ChipData {
       offSetGlow: offSetGlow ?? this.offSetGlow,
       glow: glow ?? this.glow,
       imagePath: imagePath ?? this.imagePath,
+      chipPath: chipPath ?? this.chipPath,
+      value: value ?? this.value,
     );
   }
 
@@ -60,6 +68,8 @@ class ChipData {
       'offSetGlow': offSetGlow,
       'glow': glow.value,
       'imagePath': imagePath,
+      'chipPath': chipPath,
+      'value': value,
     };
   }
 
@@ -74,6 +84,8 @@ class ChipData {
       offSetGlow: map['offSetGlow'] as double,
       glow: Color(map['glow'] as int),
       imagePath: map['imagePath'] as String,
+      chipPath: map['chipPath'] as String,
+      value: map['value'] as int,
     );
   }
 
@@ -84,7 +96,7 @@ class ChipData {
 
   @override
   String toString() {
-    return 'ChipData(name: $name, topFactor: $topFactor, sideLeftFactor: $sideLeftFactor, sideRightFactor: $sideRightFactor, offSetHeight: $offSetHeight, offSetWidth: $offSetWidth, offSetGlow: $offSetGlow, glow: $glow, imagePath: $imagePath)';
+    return 'ChipData(name: $name, topFactor: $topFactor, sideLeftFactor: $sideLeftFactor, sideRightFactor: $sideRightFactor, offSetHeight: $offSetHeight, offSetWidth: $offSetWidth, offSetGlow: $offSetGlow, glow: $glow, imagePath: $imagePath, chipPath: $chipPath, value: $value)';
   }
 
   @override
@@ -99,7 +111,9 @@ class ChipData {
         other.offSetWidth == offSetWidth &&
         other.offSetGlow == offSetGlow &&
         other.glow == glow &&
-        other.imagePath == imagePath;
+        other.imagePath == imagePath &&
+        other.chipPath == chipPath &&
+        other.value == value;
   }
 
   @override
@@ -112,6 +126,8 @@ class ChipData {
         offSetWidth.hashCode ^
         offSetGlow.hashCode ^
         glow.hashCode ^
-        imagePath.hashCode;
+        imagePath.hashCode ^
+        chipPath.hashCode ^
+        value.hashCode;
   }
 }

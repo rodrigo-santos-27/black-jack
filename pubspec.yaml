@@ -30,6 +30,12 @@ flutter:
     - assets/logo.png
     - assets/splash-screen.png
     - assets/line-header.png
+    - assets/five.png
+    - assets/ten.png
+    - assets/twenty-five.png
+    - assets/fifty.png
+    - assets/one-hundred.png
+    - assets/two-hundred.png
     - assets/home-screen.png
     - assets/home-screen-wood.png
     - assets/home-screen-black.png
@@ -44,3 +50,7 @@ flutter:
     - assets/home-invite.png
     - assets/home-deck.png
     - assets/home-deck-aux.png
+    - assets/clear-up.png
+    - assets/clear-down.png
+    - assets/deal-up.png
+    - assets/deal-down.png

@@ -14,7 +14,9 @@ class StaticChipData {
         offSetWidth: 0.075,
         offSetGlow: 0.01,
         glow: app.colors.chipFive,
-        imagePath: app.assetsPath.homeScreenFive),
+        imagePath: app.assetsPath.homeScreenFive,
+        chipPath: app.assetsPath.five,
+        value: 5),
     ChipData(
         name: 'ten',
         topFactor: 0.64,
@@ -24,7 +26,9 @@ class StaticChipData {
         offSetWidth: 0.075,
         offSetGlow: 0.01,
         glow: app.colors.chipTen,
-        imagePath: app.assetsPath.homeScreenTen),
+        imagePath: app.assetsPath.homeScreenTen,
+        chipPath: app.assetsPath.ten,
+        value: 10),
     ChipData(
         name: 'twentyFive',
         topFactor: 0.685,
@@ -34,7 +38,9 @@ class StaticChipData {
         offSetWidth: 0.075,
         offSetGlow: 0.01,
         glow: app.colors.chipTwentyFive,
-        imagePath: app.assetsPath.homeScreenTwentyFive),
+        imagePath: app.assetsPath.homeScreenTwentyFive,
+        chipPath: app.assetsPath.twentyFive,
+        value: 25),
     ChipData(
         name: 'fifty',
         topFactor: 0.685,
@@ -44,7 +50,9 @@ class StaticChipData {
         offSetWidth: 0.075,
         offSetGlow: 0.01,
         glow: app.colors.chipFifty,
-        imagePath: app.assetsPath.homeScreenFifty),
+        imagePath: app.assetsPath.homeScreenFifty,
+        chipPath: app.assetsPath.fifty,
+        value: 50),
     ChipData(
         name: 'oneHundred',
         topFactor: 0.64,
@@ -54,7 +62,9 @@ class StaticChipData {
         offSetWidth: 0.075,
         offSetGlow: 0.01,
         glow: app.colors.chipOneHundred,
-        imagePath: app.assetsPath.homeScreenOnehundred),
+        imagePath: app.assetsPath.homeScreenOnehundred,
+        chipPath: app.assetsPath.onehundred,
+        value: 100),
     ChipData(
         name: 'twoHundred',
         topFactor: 0.58,
@@ -64,6 +74,8 @@ class StaticChipData {
         offSetWidth: 0.075,
         offSetGlow: 0.01,
         glow: app.colors.chipTwoHundred,
-        imagePath: app.assetsPath.homeScreenTwoHundred)
+        imagePath: app.assetsPath.homeScreenTwoHundred,
+        chipPath: app.assetsPath.twoHundred,
+        value: 200)
   ];
 }
