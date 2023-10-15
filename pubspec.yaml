@@ -16,6 +16,7 @@ dependencies:
   provider: ^6.0.5
   device_preview: ^1.1.0
   google_fonts: ^6.1.0
+  http: ^1.1.0
 
 dev_dependencies:
   flutter_test:
@@ -30,17 +31,36 @@ flutter:
     - assets/logo.png
     - assets/splash-screen.png
     - assets/line-header.png
+    - assets/five.png
+    - assets/ten.png
+    - assets/twenty-five.png
+    - assets/fifty.png
+    - assets/one-hundred.png
+    - assets/two-hundred.png
     - assets/home-screen.png
     - assets/home-screen-wood.png
     - assets/home-screen-black.png
     - assets/home-five.png
     - assets/home-ten.png
-    - assets/home-two-five.png
-    - assets/home-five-zero.png
-    - assets/home-one-zero-zero.png
-    - assets/home-two-zero-zero.png
+    - assets/home-twenty-five.png
+    - assets/home-fifty.png
+    - assets/home-one-hundred.png
+    - assets/home-two-hundred.png
     - assets/home-money.png
     - assets/home-settings.png
-    - assets/home-convite.png
+    - assets/home-invite.png
     - assets/home-deck.png
     - assets/home-deck-aux.png
+    - assets/clear-up.png
+    - assets/clear-down.png
+    - assets/deal-up.png
+    - assets/deal-down.png
+    - assets/double-up.png
+    - assets/double-down.png
+    - assets/hit-up.png
+    - assets/hit-down.png
+    - assets/split-up.png
+    - assets/split-down.png
+    - assets/stand-up.png
+    - assets/stand-down.png
+    - assets/score.png

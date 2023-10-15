@@ -1,4 +1,4 @@
-import 'package:app/utils/loading_simulator.dart';
+import 'package:app/service/loading_simulator.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreenViewModel extends ChangeNotifier {
@@ -12,11 +12,9 @@ class SplashScreenViewModel extends ChangeNotifier {
   void runSimulator() {
     loadingSimulator.startLoading().listen((progress) {
       _progress = progress;
-
       if (progress == 1.0) {
         _isComplete = true;
       }
-
       notifyListeners();
     });
   }
