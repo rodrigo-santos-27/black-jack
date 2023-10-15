@@ -1,33 +1,38 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'dart:convert';
+import 'package:app/utils/enums.dart';
 
 class PanelButton {
-  String name;
-  String pathUp;
-  String pathDown;
+  final String name;
+  final String pathUp;
+  final String pathDown;
+  final BlackjackPanelAction action;
+
   PanelButton({
     required this.name,
     required this.pathUp,
     required this.pathDown,
+    required this.action,
   });
 
   PanelButton copyWith({
     String? name,
     String? pathUp,
     String? pathDown,
+    BlackjackPanelAction? action,
   }) {
     return PanelButton(
       name: name ?? this.name,
       pathUp: pathUp ?? this.pathUp,
       pathDown: pathDown ?? this.pathDown,
+      action: action ?? this.action,
     );
   }
 
   Map<String, dynamic> toMap() {
-    return <String, dynamic>{
+    return {
       'name': name,
       'pathUp': pathUp,
       'pathDown': pathDown,
+      'action': action.toString().split('.').last, // Convert enum to string
     };
   }
 
@@ -36,27 +41,32 @@ class PanelButton {
       name: map['name'] as String,
       pathUp: map['pathUp'] as String,
       pathDown: map['pathDown'] as String,
+      action: BlackjackPanelAction.values
+          .firstWhere((e) => e.toString().split('.').last == map['action']),
     );
   }
 
-  String toJson() => json.encode(toMap());
-
-  factory PanelButton.fromJson(String source) =>
-      PanelButton.fromMap(json.decode(source) as Map<String, dynamic>);
-
   @override
-  String toString() =>
-      'PanelButton(name: $name, pathUp: $pathUp, pathDown: $pathDown)';
-
-  @override
-  bool operator ==(covariant PanelButton other) {
-    if (identical(this, other)) return true;
-
-    return other.name == name &&
-        other.pathUp == pathUp &&
-        other.pathDown == pathDown;
+  String toString() {
+    return 'PanelButton(name: $name, pathUp: $pathUp, pathDown: $pathDown, action: $action)';
   }
 
   @override
-  int get hashCode => name.hashCode ^ pathUp.hashCode ^ pathDown.hashCode;
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+
+    return other is PanelButton &&
+        other.name == name &&
+        other.pathUp == pathUp &&
+        other.pathDown == pathDown &&
+        other.action == action;
+  }
+
+  @override
+  int get hashCode {
+    return name.hashCode ^
+        pathUp.hashCode ^
+        pathDown.hashCode ^
+        action.hashCode;
+  }
 }

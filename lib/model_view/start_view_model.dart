@@ -3,19 +3,18 @@ import 'package:app/model/chip_data.dart';
 import 'package:app/model/chip_hover.dart';
 import 'package:app/model/panel_button.dart';
 import 'package:app/repository/static_chip_data.dart';
+import 'package:app/repository/static_panel_button.dart';
 import 'package:flutter/material.dart';
 
-class HomeViewModel extends ChangeNotifier {
+class StartViewModel extends ChangeNotifier {
   List<ChipData> chips = StaticChipData.chips;
+  List<PanelButton> panelButton = StaticPanelButton.panelButtonStart;
 
   ChipHover _chipHover = ChipHover(allHover: false, currentHover: {});
   ChipHover get chipHover => _chipHover;
 
   final List<BetsData> _betsData = [];
   List<BetsData> get betsData => _betsData;
-
-  final List<PanelButton> _panelButton = [];
-  List<PanelButton> get panelButton => _panelButton;
 
   AnimationController getAnimationController(
     homeScreenState,
@@ -33,6 +32,7 @@ class HomeViewModel extends ChangeNotifier {
       animations[chip.name] = animation;
       controller.repeat(reverse: true);
     }
+
     return controller;
   }
 
@@ -48,16 +48,6 @@ class HomeViewModel extends ChangeNotifier {
 
   void clearBets() {
     _betsData.clear();
-    notifyListeners();
-  }
-
-  void savePanelButtons(PanelButton panel) {
-    _panelButton.add(panel);
-    notifyListeners();
-  }
-
-  void clearPanelButtons() {
-    _panelButton.clear();
     notifyListeners();
   }
 }

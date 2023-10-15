@@ -1,30 +1,38 @@
-import 'package:app/model_view/home_view_model.dart';
 import 'package:app/utils/app.dart';
-import 'package:app/view/home_screen/home_screen.dart';
+import 'package:app/view/black_jack/play_screen/play_screen.dart';
+import 'package:app/view/black_jack/start_screen/start_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class Routes {
   static Route<dynamic>? generateRoute(RouteSettings routes) {
     switch (routes.name) {
       // case EndPoints.splashScreen:
       //   return MaterialPageRoute(
-      //     builder: (_) => MultiProvider(
-      //       providers: [
-      //         ChangeNotifierProvider(create: (_) => SplashScreenViewModel())
-      //       ],
-      //       child: const SplashScreen(),
-      //     ),
+      //     builder: (_) => const SplashScreen(),
       //   );
       case EndPoints.home:
-        return MaterialPageRoute(
-          builder: (_) => MultiProvider(
-            providers: [ChangeNotifierProvider(create: (_) => HomeViewModel())],
-            child: const HomeScreen(),
-          ),
+        return noAnimation(
+          const StartScreen(),
+        );
+      case EndPoints.blackjack:
+        return noAnimation(
+          const PlayScreen(),
         );
       default:
     }
     return null;
+  }
+
+  static PageRouteBuilder noAnimation(Widget page) {
+    return PageRouteBuilder(
+      pageBuilder: (BuildContext context, Animation<double> animation,
+          Animation<double> secondaryAnimation) {
+        return page;
+      },
+      transitionsBuilder: (BuildContext context, Animation<double> animation,
+          Animation<double> secondaryAnimation, Widget child) {
+        return child;
+      },
+    );
   }
 }

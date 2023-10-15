@@ -1,72 +1,92 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart';
+
 class CardModel {
+  final String code;
   final String image;
   final String value;
   final String suit;
-  final String code;
+  final Map<String, String> images;
   CardModel({
+    required this.code,
     required this.image,
     required this.value,
     required this.suit,
-    required this.code,
+    required this.images,
   });
 
   CardModel copyWith({
+    String? code,
     String? image,
     String? value,
     String? suit,
-    String? code,
+    Map<String, String>? images,
   }) {
     return CardModel(
+      code: code ?? this.code,
       image: image ?? this.image,
       value: value ?? this.value,
       suit: suit ?? this.suit,
-      code: code ?? this.code,
+      images: images ?? this.images,
     );
   }
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
+      'code': code,
       'image': image,
       'value': value,
       'suit': suit,
-      'code': code,
+      'images': images,
     };
   }
 
   factory CardModel.fromMap(Map<String, dynamic> map) {
     return CardModel(
+      code: map['code'] as String,
       image: map['image'] as String,
       value: map['value'] as String,
       suit: map['suit'] as String,
-      code: map['code'] as String,
+      images: Map<String, String>.from(map['images'] as Map<String, String>),
     );
   }
 
   String toJson() => json.encode(toMap());
 
-  factory CardModel.fromJson(String source) =>
-      CardModel.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory CardModel.fromJson(Map<String, dynamic> json) {
+    return CardModel(
+      code: json['code'],
+      image: json['image'],
+      value: json['value'],
+      suit: json['suit'],
+      images: Map<String, String>.from(json['images']),
+    );
+  }
 
   @override
   String toString() {
-    return 'CardModel(image: $image, value: $value, suit: $suit, code: $code)';
+    return 'CardModel(code: $code, image: $image, value: $value, suit: $suit, images: $images)';
   }
 
   @override
   bool operator ==(covariant CardModel other) {
     if (identical(this, other)) return true;
 
-    return other.image == image &&
+    return other.code == code &&
+        other.image == image &&
         other.value == value &&
         other.suit == suit &&
-        other.code == code;
+        mapEquals(other.images, images);
   }
 
   @override
   int get hashCode {
-    return image.hashCode ^ value.hashCode ^ suit.hashCode ^ code.hashCode;
+    return code.hashCode ^
+        image.hashCode ^
+        value.hashCode ^
+        suit.hashCode ^
+        images.hashCode;
   }
 }

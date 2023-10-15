@@ -121,4 +121,5 @@ class EndPoints {
 
   static const splashScreen = '/';
   static const home = '/home';
+  static const blackjack = '/blackjack';
 }

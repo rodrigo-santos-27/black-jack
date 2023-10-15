@@ -1,13 +1,24 @@
+import 'package:app/model_view/black_jack_view_model.dart';
+import 'package:app/model_view/splash_screen_view_model.dart';
+import 'package:app/model_view/start_view_model.dart';
 import 'package:app/routes/routes.dart';
 import 'package:app/utils/app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   // runApp(DevicePreview(
   //     builder: (context) => const BlackJack())); // Turn on to see many resolution
-  runApp(const BlackJack());
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(create: (_) => SplashScreenViewModel()),
+      ChangeNotifierProvider(create: (_) => StartViewModel()),
+      ChangeNotifierProvider(create: (_) => BlackjackViewModel())
+    ],
+    child: const BlackJack(),
+  ));
 }
 
 class BlackJack extends StatelessWidget {
