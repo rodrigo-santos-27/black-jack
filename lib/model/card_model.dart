@@ -43,6 +43,16 @@ class CardModel {
     };
   }
 
+  int get blackjackValue {
+    if (value == 'ACE') {
+      return 1;
+    } else if (['KING', 'QUEEN', 'JACK'].contains(value)) {
+      return 10;
+    } else {
+      return int.tryParse(value) ?? 0;
+    }
+  }
+
   factory CardModel.fromMap(Map<String, dynamic> map) {
     return CardModel(
       code: map['code'] as String,

@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 class StartViewModel extends ChangeNotifier {
   List<ChipData> chips = StaticChipData.chips;
   List<PanelButton> panelButton = StaticPanelButton.panelButtonStart;
+  List<PanelButton> panelButtonPlay = StaticPanelButton.panelButtonPlay;
 
   ChipHover _chipHover = ChipHover(allHover: false, currentHover: {});
   ChipHover get chipHover => _chipHover;

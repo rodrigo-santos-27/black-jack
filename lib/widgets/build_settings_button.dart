@@ -39,7 +39,6 @@ class BuildSettingsButton extends StatelessWidget {
             ),
             onTap: () {
               print('settings');
-              viewModel.getCards(2);
             },
           ),
         ),

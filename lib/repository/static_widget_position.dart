@@ -100,5 +100,15 @@ class StaticImagePosition {
         widthImage: 0.06,
         background: app.colors.secondaryColorApp,
         fontSize: 16),
+    WidgetPosition(
+        id: Positions.play,
+        top: 0.42,
+        left: 0.375,
+        heightWidget: 0.06,
+        widthWidget: 0.25,
+        heightImage: 0.03,
+        widthImage: 0.06,
+        background: app.colors.secondaryColorApp,
+        fontSize: 16),
   ];
 }

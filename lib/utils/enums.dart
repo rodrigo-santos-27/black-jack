@@ -4,6 +4,23 @@ enum BlackjackAction { startGame, drawCard, endGame }
 
 enum BlackjackPanelAction { clear, deal, stand, double, hit, split }
 
+enum BlackjackResult { LeftWins, RightWins, Draw, BothBust }
+
+extension BlackjackPanelActionExtension on BlackjackPanelAction {
+  int get value {
+    switch (this) {
+      case BlackjackPanelAction.stand:
+      case BlackjackPanelAction.hit:
+        return 1;
+      case BlackjackPanelAction.deal:
+      case BlackjackPanelAction.double:
+        return 2;
+      default:
+        return -1;
+    }
+  }
+}
+
 enum Positions {
   background,
   deck,
@@ -18,5 +35,6 @@ enum Positions {
   alert,
   sum,
   chips,
-  chipsArea
+  chipsArea,
+  play
 }

@@ -1,9 +1,8 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:app/model/card_model.dart';
 
 class DeckModel {
   final String deckId;
-  int remaining; // tornando o remaining não-final
+  int remaining;
   final bool shuffled;
   List<CardModel>? cards;
 

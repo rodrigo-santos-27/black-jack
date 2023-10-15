@@ -15,16 +15,6 @@ class DeckService {
 
   DeckService._internal();
 
-  // Future<DeckModel> fetchNewDeck() async {
-  //   final response =
-  //       await http.get(Uri.parse("$baseUrl/deck/new/shuffle/?deck_count=1"));
-  //   if (response.statusCode == 200) {
-  //     return DeckModel.fromJson(json.decode(response.body));
-  //   } else {
-  //     throw Exception('Failed to load deck');
-  //   }
-  // }
-
   Future<DeckModel> fetchNewDeck() async {
     late DeckModel deckModel;
     final response =
@@ -47,7 +37,6 @@ class DeckService {
   Future<List<CardModel>> drawCards(String deckId, int count) async {
     final response =
         await http.get(Uri.parse("$baseUrl/deck/$deckId/draw/?count=$count"));
-    // print(response.body);
     if (response.statusCode == 200) {
       final responseJson = jsonDecode(response.body);
       List<CardModel> newCards = (responseJson['cards'] as List)

@@ -16,4 +16,21 @@ class StaticPanelButton {
         pathDown: app.assetsPath.dealDown,
         action: BlackjackPanelAction.deal)
   ];
+  static List<PanelButton> panelButtonPlay = [
+    PanelButton(
+        name: 'Ficar',
+        pathUp: app.assetsPath.standUp,
+        pathDown: app.assetsPath.standDown,
+        action: BlackjackPanelAction.stand),
+    PanelButton(
+        name: 'Dobrar',
+        pathUp: app.assetsPath.doubleUp,
+        pathDown: app.assetsPath.doubleDown,
+        action: BlackjackPanelAction.double),
+    PanelButton(
+        name: 'Acertar',
+        pathUp: app.assetsPath.hitUp,
+        pathDown: app.assetsPath.hitDown,
+        action: BlackjackPanelAction.hit)
+  ];
 }

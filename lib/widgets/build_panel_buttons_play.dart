@@ -10,8 +10,8 @@ import 'package:app/utils/enums.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class BuildPanelButtons extends StatelessWidget {
-  const BuildPanelButtons({
+class BuildPanelButtonsPlay extends StatelessWidget {
+  const BuildPanelButtonsPlay({
     Key? key,
     required this.heightWidget,
     required this.widthWidget,
@@ -24,10 +24,11 @@ class BuildPanelButtons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     WidgetPosition widgetPosition = StaticImagePosition.imagesPositions
-        .firstWhere((positionItem) => positionItem.id == Positions.panel);
+        .firstWhere((positionItem) => positionItem.id == Positions.play);
 
-    List<PanelButton> panelButton = viewModel.panelButton;
-    List<bool> clicked = List.filled(panelButton.length, false);
+    List<PanelButton> panelButtonPlay = viewModel.panelButtonPlay;
+
+    List<bool> clicked = List.filled(panelButtonPlay.length, false);
 
     return viewModel.betsData.isNotEmpty
         ? Consumer<BlackjackViewModel>(
@@ -43,7 +44,7 @@ class BuildPanelButtons extends StatelessWidget {
                     return Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: List.generate(
-                        panelButton.length,
+                        panelButtonPlay.length,
                         (index) {
                           return Column(
                             children: [
@@ -58,8 +59,8 @@ class BuildPanelButtons extends StatelessWidget {
                                         (widgetPosition.widthImage ?? 0.0),
                                     alignment: Alignment.center,
                                     imagePath: clicked[index]
-                                        ? panelButton[index].pathDown
-                                        : panelButton[index].pathUp,
+                                        ? panelButtonPlay[index].pathDown
+                                        : panelButtonPlay[index].pathUp,
                                   ),
                                   onTap: () {
                                     panel(() {
@@ -70,17 +71,24 @@ class BuildPanelButtons extends StatelessWidget {
                                         panel(() {
                                           clicked[index] = !clicked[index];
                                         });
-                                        switch (panelButton[index].action) {
-                                          case BlackjackPanelAction.clear:
-                                            viewModel.clearBets();
-                                            blackJackViewModel.dispatch(
-                                                BlackjackAction.endGame,
-                                                context);
+                                        switch (panelButtonPlay[index].action) {
+                                          case BlackjackPanelAction.stand:
+                                            print('Stand');
+                                            blackJackViewModel.getCards(
+                                                BlackjackPanelAction.stand);
+                                            // turn on card (table) before to call new card
                                             break;
-                                          case BlackjackPanelAction.deal:
-                                            blackJackViewModel.dispatch(
-                                                BlackjackAction.startGame,
-                                                context);
+                                          case BlackjackPanelAction.double:
+                                            print('Double');
+                                            blackJackViewModel.getCards(
+                                                BlackjackPanelAction.double);
+                                            // double tbets value and call twice card
+                                            break;
+                                          case BlackjackPanelAction.hit:
+                                            print('Hit');
+                                            blackJackViewModel.getCards(
+                                                BlackjackPanelAction.hit);
+                                            // turn on card (me) before to call new card
                                             break;
                                           default:
                                         }
@@ -90,7 +98,7 @@ class BuildPanelButtons extends StatelessWidget {
                                 ),
                               ),
                               Text(
-                                panelButton[index].name,
+                                panelButtonPlay[index].name,
                                 style: TextStyle(
                                   color: widgetPosition.background,
                                   fontSize: widgetPosition.fontSize,

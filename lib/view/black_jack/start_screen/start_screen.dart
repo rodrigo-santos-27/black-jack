@@ -89,7 +89,7 @@ class _StartScreenState extends State<StartScreen>
               BuildPanelButtons(
                 heightWidget: heightWidget,
                 widthWidget: widthWidget,
-                viewlModel: startViewModel,
+                viewModel: startViewModel,
               ),
               BuildChipsButtons(
                 viewModel: startViewModel,

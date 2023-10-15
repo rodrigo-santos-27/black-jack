@@ -55,3 +55,12 @@ flutter:
     - assets/clear-down.png
     - assets/deal-up.png
     - assets/deal-down.png
+    - assets/double-up.png
+    - assets/double-down.png
+    - assets/hit-up.png
+    - assets/hit-down.png
+    - assets/split-up.png
+    - assets/split-down.png
+    - assets/stand-up.png
+    - assets/stand-down.png
+    - assets/score.png

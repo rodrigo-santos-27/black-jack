@@ -9,7 +9,7 @@ class App {
 
   App._internal();
 
-  String initRoute = EndPoints.home;
+  String initRoute = EndPoints.splashScreen;
   AppColors colors = AppColors();
   AssetsPath assetsPath = AssetsPath();
   Urls urls = Urls();
@@ -65,12 +65,21 @@ class AssetsPath {
   String ten = 'assets/ten.png';
   String twentyFive = 'assets/twenty-five.png';
   String fifty = 'assets/fifty.png';
+  String score = 'assets/score.png';
   String onehundred = 'assets/one-hundred.png';
   String twoHundred = 'assets/two-hundred.png';
   String clearUp = 'assets/clear-up.png';
   String clearDown = 'assets/clear-down.png';
   String dealUp = 'assets/deal-up.png';
   String dealDown = 'assets/deal-down.png';
+  String doubleUp = 'assets/double-up.png';
+  String doubleDown = 'assets/double-down.png';
+  String hitUp = 'assets/hit-up.png';
+  String hitDown = 'assets/hit-down.png';
+  String splitUp = 'assets/split-up.png';
+  String splitDown = 'assets/split-down.png';
+  String standUp = 'assets/stand-up.png';
+  String standDown = 'assets/stand-down.png';
   String homeScreen = 'assets/home-screen.png';
   String homeScreenWood = 'assets/home-screen-wood.png';
   String homeScreenBlack = 'assets/home-screen-black.png';
@@ -95,19 +104,6 @@ class Urls {
   }
 
   Urls._internal();
-
-  // static String phoneNumber = "+5535997087641";
-  // static String message =
-  //     'João 14:6: "Jesus disse-lhe: Eu sou o caminho, e a verdade, e a vida; ninguém vem ao Pai, senão por mim."';
-
-  // Uri facebook =
-  //     Uri.parse('https://www.facebook.com/ADJesusdeNazare?mibextid=ZbWKwL');
-
-  // Uri instagram = Uri.parse(
-  //     'https://instagram.com/ad.jesusdenazare?utm_source=qr&igshid=MzNlNGNkZWQ4Mg==');
-
-  // Uri whatapp = Uri.parse(
-  //     'https://web.whatsapp.com/send?phone=$phoneNumber&text=$message');
 }
 
 class EndPoints {
