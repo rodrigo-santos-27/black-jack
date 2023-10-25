@@ -1,5 +1,5 @@
 import 'package:app/model/widget_position.dart';
-import 'package:app/model_view/start_view_model.dart';
+import 'package:app/view_model/start_view_model.dart';
 import 'package:app/repository/static_widget_position.dart';
 import 'package:app/service/app_service.dart';
 import 'package:app/utils/enums.dart';
@@ -20,7 +20,7 @@ class BuildChipsArea extends StatelessWidget {
   final AppService service;
   @override
   Widget build(BuildContext context) {
-    WidgetPosition widgetPosition = StaticImagePosition.imagesPositions
+    WidgetPosition widgetPosition = StaticWidgetPosition.widgets
         .firstWhere((positionItem) => positionItem.id == Positions.chipsArea);
 
     return viewlModel.betsData.isEmpty

@@ -1,7 +1,7 @@
+import 'package:app/components/image_size.dart';
 import 'package:app/model/widget_position.dart';
 import 'package:app/repository/static_widget_position.dart';
 import 'package:app/utils/enums.dart';
-import 'package:app/components/image_size.dart';
 import 'package:flutter/material.dart';
 
 class BuildLineImage extends StatelessWidget {
@@ -14,7 +14,7 @@ class BuildLineImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    WidgetPosition widgetPosition = StaticImagePosition.imagesPositions
+    WidgetPosition widgetPosition = StaticWidgetPosition.widgets
         .firstWhere((positionItem) => positionItem.id == Positions.line);
 
     return Align(

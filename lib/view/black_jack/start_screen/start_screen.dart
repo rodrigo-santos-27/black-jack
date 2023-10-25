@@ -1,5 +1,5 @@
-import 'package:app/model_view/black_jack_view_model.dart';
-import 'package:app/model_view/start_view_model.dart';
+import 'package:app/view_model/black_jack_view_model.dart';
+import 'package:app/view_model/start_view_model.dart';
 import 'package:app/repository/static_widget_position.dart';
 import 'package:app/service/app_service.dart';
 import 'package:app/utils/app.dart';
@@ -28,7 +28,7 @@ class StartScreen extends StatefulWidget {
 class _StartScreenState extends State<StartScreen>
     with TickerProviderStateMixin {
   late final App app;
-  StaticImagePosition positions = StaticImagePosition();
+  StaticWidgetPosition positions = StaticWidgetPosition();
 
   late Map<String, AnimationController> animationControllers = {};
   late Map<String, Animation> animations = {};

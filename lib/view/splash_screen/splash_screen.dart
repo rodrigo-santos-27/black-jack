@@ -1,4 +1,4 @@
-import 'package:app/model_view/splash_screen_view_model.dart';
+import 'package:app/view_model/splash_screen_view_model.dart';
 import 'package:app/utils/app.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

@@ -10,11 +10,11 @@ class BuildSumCoin extends StatelessWidget {
   final String sum;
   @override
   Widget build(BuildContext context) {
-    WidgetPosition widgetPosition = StaticImagePosition.imagesPositions
+    WidgetPosition widgetPosition = StaticWidgetPosition.widgets
         .firstWhere((positionItem) => positionItem.id == Positions.sum);
 
     return Container(
-      alignment: Alignment.center,
+      alignment: widgetPosition.alignment,
       height: widthWidget * 0.05,
       width: widthWidget * 0.1,
       child: Text(

@@ -9,7 +9,7 @@ class App {
 
   App._internal();
 
-  String initRoute = EndPoints.splashScreen;
+  String initRoute = EndPoints.home;
   AppColors colors = AppColors();
   AssetsPath assetsPath = AssetsPath();
   Urls urls = Urls();
@@ -102,7 +102,6 @@ class Urls {
   factory Urls() {
     return _instance;
   }
-
   Urls._internal();
 }
 
@@ -112,9 +111,7 @@ class EndPoints {
   factory EndPoints() {
     return _instance;
   }
-
   EndPoints._internal();
-
   static const splashScreen = '/';
   static const home = '/home';
   static const blackjack = '/blackjack';

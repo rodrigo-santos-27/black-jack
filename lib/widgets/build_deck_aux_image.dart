@@ -16,7 +16,7 @@ class BuildDeckAuxImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    WidgetPosition widgetPosition = StaticImagePosition.imagesPositions
+    WidgetPosition widgetPosition = StaticWidgetPosition.widgets
         .firstWhere((positionItem) => positionItem.id == Positions.deckAux);
 
     return Positioned(

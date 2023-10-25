@@ -1,6 +1,6 @@
-import 'package:app/model_view/black_jack_view_model.dart';
-import 'package:app/model_view/splash_screen_view_model.dart';
-import 'package:app/model_view/start_view_model.dart';
+import 'package:app/view_model/black_jack_view_model.dart';
+import 'package:app/view_model/splash_screen_view_model.dart';
+import 'package:app/view_model/start_view_model.dart';
 import 'package:app/routes/routes.dart';
 import 'package:app/utils/app.dart';
 import 'package:flutter/material.dart';

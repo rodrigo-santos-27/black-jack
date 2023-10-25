@@ -36,5 +36,7 @@ enum Positions {
   sum,
   chips,
   chipsArea,
-  play
+  play,
+  scores,
+  cards
 }

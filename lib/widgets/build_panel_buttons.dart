@@ -3,8 +3,8 @@ import 'package:app/components/empty.dart';
 import 'package:app/components/image_size.dart';
 import 'package:app/model/panel_button.dart';
 import 'package:app/model/widget_position.dart';
-import 'package:app/model_view/black_jack_view_model.dart';
-import 'package:app/model_view/start_view_model.dart';
+import 'package:app/view_model/black_jack_view_model.dart';
+import 'package:app/view_model/start_view_model.dart';
 import 'package:app/repository/static_widget_position.dart';
 import 'package:app/utils/enums.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +23,7 @@ class BuildPanelButtons extends StatelessWidget {
   final StartViewModel viewModel;
   @override
   Widget build(BuildContext context) {
-    WidgetPosition widgetPosition = StaticImagePosition.imagesPositions
+    WidgetPosition widgetPosition = StaticWidgetPosition.widgets
         .firstWhere((positionItem) => positionItem.id == Positions.panel);
 
     List<PanelButton> panelButton = viewModel.panelButton;

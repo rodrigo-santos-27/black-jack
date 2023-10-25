@@ -2,7 +2,7 @@ import 'package:app/components/image_pulser.dart';
 import 'package:app/components/image_size.dart';
 import 'package:app/model/bets_data.dart';
 import 'package:app/model/chip_hover.dart';
-import 'package:app/model_view/start_view_model.dart';
+import 'package:app/view_model/start_view_model.dart';
 import 'package:app/service/app_service.dart';
 import 'package:flutter/material.dart';
 

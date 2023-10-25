@@ -3,10 +3,10 @@ import 'package:app/utils/app.dart';
 import 'package:app/utils/enums.dart';
 import 'package:flutter/material.dart';
 
-class StaticImagePosition {
+class StaticWidgetPosition {
   static App app = App();
-
-  static List<WidgetPosition> imagesPositions = [
+  static double zero = 0.0;
+  static List<WidgetPosition> widgets = [
     WidgetPosition(
         id: Positions.deck,
         top: 0,
@@ -86,10 +86,7 @@ class StaticImagePosition {
         heightImage: 0.075,
         widthImage: 0.075),
     WidgetPosition(
-      id: Positions.chipsArea,
-      heightWidget: 0.175,
-      widthWidget: 0.175,
-    ),
+        id: Positions.chipsArea, heightWidget: 0.175, widthWidget: 0.175),
     WidgetPosition(
         id: Positions.panel,
         top: 0.42,
@@ -110,5 +107,41 @@ class StaticImagePosition {
         widthImage: 0.06,
         background: app.colors.secondaryColorApp,
         fontSize: 16),
+    WidgetPosition(
+      id: Positions.cards,
+      top: 0.135,
+      heightWidget: 0.1,
+      widthWidget: 0.07,
+    ),
+    WidgetPosition(
+        id: Positions.scores,
+        top: 0.25,
+        left: 0.25,
+        right: 0.25,
+        heightWidget: 0.05,
+        heightImage: 0.04,
+        widthImage: 0.035,
+        heightFactor: 0.0125,
+        alignment: Alignment.topCenter,
+        path: app.assetsPath.score,
+        padding: CustomEdgeInsets(top: 0.125),
+        background: app.colors.secondaryColorApp,
+        fontSize: 0.0175),
   ];
+}
+
+double getOffsetCards(int index) {
+  if (index >= 0 && index <= 6) {
+    return 0.6 + 0.015 * index;
+  } else {
+    return 0.705;
+  }
+}
+
+double getOffsetScore(int index) {
+  if (index >= 1 && index <= 6) {
+    return 0.770 + 0.015 * (index - 1);
+  } else {
+    return 0.776;
+  }
 }
